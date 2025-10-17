@@ -1,8 +1,6 @@
 services:
-  portainer:
-    container_name: portainer
+  server:
     image: portainer/portainer-ce:lts
-    restart: unless-stopped
     networks:
       - traefik
     volumes:
