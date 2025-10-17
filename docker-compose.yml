@@ -6,13 +6,14 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - portainer_data:/data
-    labels:
-      - "traefik.docker.network=traefik"
-      - "traefik.enable=true"
-      - "traefik.http.routers.portainer.rule=Host(`portainer.marcmarina.com`)"
-      - "traefik.http.routers.portainer.entrypoints=websecure"
-      - "traefik.http.routers.portainer.tls.certresolver=letsencrypt"
-      - "traefik.http.services.portainer.loadbalancer.server.port=9000"
+    deploy:
+      labels:
+        - "traefik.docker.network=traefik"
+        - "traefik.enable=true"
+        - "traefik.http.routers.portainer.rule=Host(`portainer.marcmarina.com`)"
+        - "traefik.http.routers.portainer.entrypoints=websecure"
+        - "traefik.http.routers.portainer.tls.certresolver=letsencrypt"
+        - "traefik.http.services.portainer.loadbalancer.server.port=9000"
 
 volumes:
   portainer_data:
