@@ -8,8 +8,8 @@ services:
       - portainer_data:/data
     deploy:
       labels:
-        - "traefik.docker.network=traefik"
         - "traefik.enable=true"
+        - "traefik.swarm.network=traefik"
         - "traefik.http.routers.portainer.rule=Host(`portainer.marcmarina.com`)"
         - "traefik.http.routers.portainer.entrypoints=websecure"
         - "traefik.http.routers.portainer.tls.certresolver=letsencrypt"
