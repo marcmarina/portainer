@@ -11,8 +11,7 @@ services:
         - "traefik.enable=true"
         - "traefik.swarm.network=traefik"
         - "traefik.http.routers.portainer.rule=Host(`portainer.marcmarina.com`)"
-        - "traefik.http.routers.portainer.entrypoints=websecure"
-        - "traefik.http.routers.portainer.tls.certresolver=letsencrypt"
+        - "traefik.http.routers.portainer.entrypoints=web"
         - "traefik.http.services.portainer.loadbalancer.server.port=9000"
 
 volumes:
